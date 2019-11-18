@@ -11,7 +11,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestKeepRoundTripper100Rate(t *testing.T) {
+func TestRoundTripper100Rate(t *testing.T) {
 	vec := prometheus.NewCounterVec(prometheus.CounterOpts{
 		Name: "http_keepalive",
 	}, []string{"service", "reused"})
@@ -25,7 +25,7 @@ func TestKeepRoundTripper100Rate(t *testing.T) {
 	assert.Equal(t, float64(9), testutil.ToFloat64(reused), "reused connections")
 }
 
-func TestKeepRoundTripperZeroRate(t *testing.T) {
+func TestRoundTripperZeroRate(t *testing.T) {
 	vec := prometheus.NewCounterVec(prometheus.CounterOpts{
 		Name: "http_keepalive",
 	}, []string{"service", "reused"})
